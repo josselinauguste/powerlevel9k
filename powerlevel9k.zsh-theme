@@ -1227,6 +1227,15 @@ prompt_nodeenv() {
 }
 
 ################################################################
+# Segment to display opam information
+prompt_opam_switch() {
+  local opam_switch_prefix="$OPAM_SWITCH_PREFIX"
+  if [[ -n "$opam_switch_prefix" && ! $opam_switch_prefix =~ ^.*default$  ]]; then
+    "$1_prompt_segment" "$0" "$2" "darkorange" "$DEFAULT_COLOR" "local"
+  fi
+}
+
+################################################################
 # Segment to print a little OS icon
 prompt_os_icon() {
   "$1_prompt_segment" "$0" "$2" "black" "white" "$OS_ICON"
